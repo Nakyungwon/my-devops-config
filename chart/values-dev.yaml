@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   # my-devops 리포의 CI(ci-dev)가 이 줄을 커밋 SHA 로 sed 해서 이 리포에 커밋합니다.
   # 손으로 고칠 일 없습니다.
-  tag: 94308b2ee987ce4fee884a9b1700e744e9c92d6e
+  tag: 9947ac4569edf785698791fbbd5289a5ba2790af
 
 service:
   # NodePort 는 네임스페이스가 아니라 클러스터 전역입니다.
