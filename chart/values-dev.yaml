@@ -1,0 +1,18 @@
+# dev — 자동 sync. argocd/app-dev.yaml 이 이 파일을 씁니다.
+
+replicaCount: 1
+
+image:
+  # my-devops 리포의 CI(ci-dev)가 이 줄을 커밋 SHA 로 sed 해서 이 리포에 커밋합니다.
+  # 손으로 고칠 일 없습니다.
+  tag: 94308b2ee987ce4fee884a9b1700e744e9c92d6e
+
+service:
+  # NodePort 는 네임스페이스가 아니라 클러스터 전역입니다.
+  # prod(30081) 와 반드시 달라야 합니다.
+  nodePort: 30080
+
+# dev 만 Istio 게이트웨이 라우팅을 켠다. Gateway + VirtualService 가 생성돼
+# istio-ingressgateway(localhost:80) → web 서비스로 트래픽이 흐른다.
+istio:
+  enabled: true

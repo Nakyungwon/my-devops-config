@@ -1,0 +1,13 @@
+# prod — 자동 sync 없음. argocd/app-prod.yaml 이 이 파일을 씁니다.
+
+replicaCount: 3
+
+image:
+  # my-devops 리포에서 develop → main merge 가 일어나면 CI(ci-prod)가
+  # values-dev.yaml 의 태그(= dev 에서 검증된 이미지)를 이 줄에 복사해 커밋합니다.
+  # 커밋만으로는 배포되지 않습니다. ArgoCD 에서 web-prod-metadata 를 SYNC 해야 나갑니다.
+  tag: a1dd282a9af80c97a63ea0158668f3517441f6b6
+
+service:
+  # dev(30080) 와 겹치면 나중에 뜨는 쪽이 실패합니다.
+  nodePort: 30081
